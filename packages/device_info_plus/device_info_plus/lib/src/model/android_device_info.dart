@@ -10,7 +10,7 @@ import 'package:device_info_plus_platform_interface/model/base_device_info.dart'
 /// See: https://developer.android.com/reference/android/os/Build.html
 class AndroidDeviceInfo extends BaseDeviceInfo {
   AndroidDeviceInfo._({
-    required Map<String, dynamic> data,
+    required this.data,
     required this.version,
     required this.board,
     required this.bootloader,
@@ -123,7 +123,7 @@ class AndroidDeviceInfo extends BaseDeviceInfo {
   /// There are special restrictions on this identifier, more info here:
   /// https://developer.android.com/reference/android/os/Build#getSerial()
   final String serialNumber;
-
+  final Map<String, dynamic> data;
   /// Deserializes from the message received from [_kChannel].
   static AndroidDeviceInfo fromMap(Map<String, dynamic> map) {
     return AndroidDeviceInfo._(
